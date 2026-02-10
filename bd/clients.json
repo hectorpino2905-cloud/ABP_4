@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "name": "hola",
+    "email": "dabkdj@s",
+    "address": null,
+    "active": false,
+    "type": "premium"
+  },
+  {
+    "id": 3,
+    "name": "sa",
+    "email": "gmail@gmail.com",
+    "address": null,
+    "active": true,
+    "type": "regular"
+  },
+  {
+    "id": 4,
+    "name": "d",
+    "email": ".@ñmail.com",
+    "address": null,
+    "active": false,
+    "type": "regular"
+  }
+]

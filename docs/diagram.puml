@@ -1,0 +1,67 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+' =========================
+' Core classes
+' =========================
+class clients {
+  +id: int
+  +name: str
+  +email: str
+  +address: Optional[str] = None
+  +active: bool = True
+
+  --
+  +discount(): float
+  +apply_discount(amount: int): float
+  +to_dict(): dict
+  +get_type(): str
+
+  --
+  {static} +add_clients(**kwargs)
+  {static} +modify_clients(**kwargs)
+  +delete_clients(**kwargs)
+  {static} +view_clients(**kwargs)
+  {static} +discount_simulation(**kwargs)
+}
+
+class regular_clients {
+  +discount(): float
+}
+
+class premium_clients {
+  +discount(): float
+  +get_type(): str
+}
+
+class corporate_clients {
+  +discount(): float
+  +get_type(): str
+}
+
+' =========================
+' Inheritance (Herencia)
+' =========================
+regular_clients --|> clients
+premium_clients --|> clients
+corporate_clients --|> clients
+
+' =========================
+' Notes / storage
+' =========================
+note right of clients
+Persistencia:
+- Guarda/lee registros en bd/clients.json
+- Formato: lista de dicts
+- Campo "type": regular/premium/corporate
+- add_clients autoincrementa id leyendo el JSON
+end note
+
+note bottom of clients
+Polimorfismo:
+- discount() cambia según subclase
+- get_type() se sobrescribe en premium/corporate
+end note
+
+@enduml

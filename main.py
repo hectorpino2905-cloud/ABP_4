@@ -14,7 +14,6 @@ def main():
         if menu < 1 or menu > 3:
             print("elija una opcion correcta")
             continue
-
         if menu == 1 :
             while True:
                 sub = input(
@@ -148,5 +147,4 @@ def main():
                     break
         elif menu == 3:
             break
-
 main()
